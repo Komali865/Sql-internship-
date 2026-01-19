@@ -1,0 +1,30 @@
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    email VARCHAR(100),
+    grade VARCHAR(5)
+);
+
+INSERT INTO students (id, name, age, email, grade) VALUES
+(1, 'Ravi Kumar', 22, 'ravi.kumar@example.com', 'A'),
+(2, 'Isha Reddy', 19, 'isha.reddy@example.com', 'B'),
+(3, 'Manoj Varma', 24, 'manoj.varma@example.com', 'A'),
+(4, 'Anitha Rao', 18, 'anitha.rao@example.com', 'C'),
+(5, 'Suresh Babu', 23, 'suresh.babu@example.com', 'B'),
+(6, 'Raju', 20, 'raju@example.com', NULL);
+
+SELECT * FROM students WHERE age = 22;
+
+SELECT * FROM students WHERE age > 20 AND grade = 'A';
+
+SELECT * FROM students WHERE name LIKE 'A%';
+
+SELECT * FROM students WHERE grade IN ('A', 'B');
+
+SELECT * FROM students WHERE age BETWEEN 18 AND 22;
+
+SELECT * FROM students WHERE grade IS NULL;
+
+SELECT name AS student_name, email AS contact_email FROM students WHERE age > 20;
+
