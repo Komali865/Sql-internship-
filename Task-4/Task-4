@@ -1,0 +1,67 @@
+CREATE DATABASE internship_db;
+USE internship_db;
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary INT,
+    experience INT
+);
+
+INSERT INTO employees (emp_name, department, salary, experience) VALUES
+('Ravi', 'IT', 60000, 3),
+('Anjali', 'HR', 45000, 2),
+('Kiran', 'IT', 80000, 6),
+('Sneha', 'Finance', 70000, 5),
+('Arjun', 'IT', 50000, 2),
+('Meena', 'HR', 40000, 1),
+('Rahul', 'Finance', 90000, 7),
+('Pooja', 'IT', 75000, 4);
+
+SELECT * 
+FROM employees
+ORDER BY salary ASC;
+
+SELECT * 
+FROM employees
+ORDER BY salary DESC;
+
+SELECT*
+FROM employees
+ORDER BY department ASC, salary DESC;
+
+SELECT * 
+FROM employees
+ORDER BY salary DESC
+LIMIT 3;
+
+SELECT * 
+FROM employees
+WHERE department = 'IT'
+ORDER BY salary DESC;
+
+SELECT * 
+FROM employees
+ORDER BY emp_id
+LIMIT 3 OFFSET 0;
+
+SELECT * 
+FROM employees
+ORDER BY emp_id
+LIMIT 3 OFFSET 3;
+
+SELECT emp_name, department, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 5;
+
+SELECT emp_name, salary
+FROM employees
+WHERE salary > 50000
+ORDER BY salary DESC
+LIMIT 3;
+
+
+
+SELECT * 
