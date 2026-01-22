@@ -1,0 +1,50 @@
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    department VARCHAR(50),
+    marks INT
+);
+
+/* 2. Insert Sample Data */
+INSERT INTO students VALUES
+(1, 'Akhil', 20, 'CSE', 85),
+(2, 'Bhavya', 21, 'CSE', 78),
+(3, 'Charan', 20, 'ECE', 90),
+(4, 'Divya', 22, 'ECE', 70),
+(5, 'Eshwar', 21, 'MECH', 65),
+(6, 'Farah', 20, 'CSE', 88),
+(7, 'Gopal', 22, 'MECH', NULL);
+
+/* Age-wise student count */
+SELECT age, COUNT(*) AS total_students
+FROM students
+GROUP BY age;
+/* Department-wise student count (Real-world example) */
+SELECT department, COUNT(student_id) AS dept_count
+FROM students
+GROUP BY department;
+
+/* Department-wise average marks */
+SELECT department, AVG(marks) AS average_marks
+FROM students
+GROUP BY department;
+
+/* Age-wise maximum and minimum marks */
+SELECT age,
+       MAX(marks) AS max_marks,
+       MIN(marks) AS min_marks
+FROM students
+GROUP BY age;
+
+/* HAVING clause: departments with average marks > 75 */
+SELECT department, AVG(marks) AS avg_marks
+FROM students
+GROUP BY department
+HAVING AVG(marks) > 75;
+
+/* COUNT and NULL handling */
+SELECT
+    COUNT(*) AS total_rows,
+    COUNT(marks) AS non_null_marks
+FROM students;
